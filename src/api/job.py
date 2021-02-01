@@ -29,7 +29,7 @@ def execute_job(job_to_exec: str):
     """Executes command."""
     try:
         log.info("Executing job in Celery: %s", job_to_exec)
-        time.sleep(200)
+        #time.sleep(2)
         command_to_exec = conf['job'][job_to_exec]
         log.info("Executing command in Celery: %s", command_to_exec)
     except EncodeError:

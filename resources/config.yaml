@@ -18,9 +18,8 @@ group:
     - job_b3
 
   group_c:
-    - job_c1
 
 job:
-  job_a1: 'echo job_a1'
-  job_a2: 'echo job_a2'
-  job_a3: 'echo job_a3'
+  job_a1: 'echo "job_a1"'
+  job_a2: 'sleep 2'
+  job_a3: 'sleep 2'

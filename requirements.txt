@@ -2,3 +2,5 @@ flask~=1.1.2
 celery~=5.0.5
 pyyaml~=5.4.1
 redis~=3.5.3
+pytest~=6.2.2
+pytest-celery~=0.0.0a1

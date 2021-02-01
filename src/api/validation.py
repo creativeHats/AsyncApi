@@ -25,6 +25,8 @@ class Validation:
 
     def validate_group_jobs(self, group_name):
         g_def = self.config['group'][group_name]
+        if not g_def:
+            raise GroupValidationError('No Jobs Configured')
         invalid_jobs = []
         for job in g_def:
             try:

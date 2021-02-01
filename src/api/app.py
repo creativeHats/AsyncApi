@@ -14,11 +14,6 @@ host = conf['app']['host']
 
 @app.route('/status/<task_id>')
 def task_status(task_id):
-    """
-
-    :param task_id:
-    :return:
-    """
     try:
         task = celery.AsyncResult(task_id)
         if task.state == "PENDING":
@@ -30,7 +25,7 @@ def task_status(task_id):
             }
         return jsonify(response), 200
     except JobNotExistsError as e:
-        return errors.get('JobNotExistsError') + e.job_id, errors.get('JobNotExistsError').get('status')
+        return errors.get('JobNotExistsError').get('message') + e.job_id, errors.get('JobNotExistsError').get('status')
     except Exception:
         return errors.get('InternalServerError')
 
