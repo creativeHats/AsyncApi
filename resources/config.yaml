@@ -1,0 +1,26 @@
+app:
+  name: AsyncApi
+  port: 5100
+  host: '0.0.0.0'
+  celery_broker_url: 'redis://redis_db:6379'
+  celery_result_backend: 'redis://redis_db:6379'
+
+
+group:
+  group_a:
+    - job_a1
+    - job_a2
+    - job_a3
+
+  group_b:
+    - job_b1
+    - job_b2
+    - job_b3
+
+  group_c:
+    - job_c1
+
+job:
+  job_a1: 'echo job_a1'
+  job_a2: 'echo job_a2'
+  job_a3: 'echo job_a3'
