@@ -10,15 +10,19 @@ Since this is a MVP , the configurations and backends are simplified. Scalibilty
     - A job represents a long-running process.A long-running process can be system sleep / logging and it may intermittently run
 forever to simulate a system failure.
       
+      
 ####**Functionality**
 -   Endpoint to trigger a group. `/group/<group_name>`
 -   Once a group action is triggered, simulate the background process that runs all of
 the jobs within that group.
 -   The long-running process status can be tracked via endpoint `/status/<job_id>`
 
+The long running operation itself is turned into a resource, created using the original request with a response telling the client where to find the results. The client polls the group request to GET all the child jobs, and will eventually be redirected to another resource representing the job id. Since the output has its own URI, it becomes possible GET it multiple times, as long as it has not been deleted.
+
+
 The API flow is well depicted in the following diagram
 
-![alt text](images/apiflow.png "Group Job API Flow")
+![alt text](images/api_flow.png "Group Job API Flow")
 
 ## Usage
 
@@ -57,7 +61,7 @@ A valid request `http://localhost:5100/group/group_a` should return url for trac
 `{"Check job status at":["/status/78b988f6-87d9-4225-86b5-cabe6e475102","/status/a9f27bc0-e4c1-49d8-9818-851e1388e590","/status/05cd046a-7a20-4711-9dd0-b57cf1028135"]}`
 
 
-**Check Job Status **
+**Check Job Status**
 
 Enter the following URL `http://localhost:5100/status/<job_id>` , this return the job status
 
@@ -68,3 +72,9 @@ Valid Response :
 Invalid Response :
 
 `Job with given id doesn't exists : dummy`
+
+### Further Improvements (Scalibilty and optimaztions)
+1. The groups and config definition can be moved to a database backend for scalibilty/tracking purposes. This backend can also serve as an audit for the job execution status.
+2. Rule based validation of the group and job definitions 
+3. A separate backend can be created for `celery` which will enable spawning multiple workers.
+4. Configure load balancing for multiple worker execution
