@@ -11,7 +11,7 @@ Since this is a MVP , the configurations and backends are simplified. Scalibilty
 forever to simulate a system failure.
       
       
-####**Functionality**
+#### Functionality
 -   Endpoint to trigger a group. `/group/<group_name>`
 -   Once a group action is triggered, simulate the background process that runs all of
 the jobs within that group.
