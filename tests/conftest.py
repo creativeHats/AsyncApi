@@ -1,4 +1,3 @@
-import pytest
 from api.app import app as flask_app
 
 import pytest
