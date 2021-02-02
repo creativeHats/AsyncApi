@@ -2,8 +2,8 @@ app:
   name: AsyncApi
   port: 5100
   host: '0.0.0.0'
-  celery_broker_url: 'redis://redis_db:6379'
-  celery_result_backend: 'redis://redis_db:6379'
+  celery_broker_url: 'redis://localhost:6379'
+  celery_result_backend: 'redis://localhost:6379'
 
 
 group:

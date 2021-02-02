@@ -2,8 +2,8 @@ version: '3'
 services:
   redis_db:
     image: redis:latest
-    container_name: redis_db
-    hostname: redis_db
+    container_name: redis
+    hostname: redis
     ports:
       - "6379:6379"
 

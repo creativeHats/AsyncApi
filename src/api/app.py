@@ -59,5 +59,5 @@ def group(group_id):
         return errors.get('InternalServerError').get('message'), errors.get('InternalServerError').get('status')
 
 
-if __name__ == '__main__':
-    app.run(host=host, port=port)
+# if __name__ == '__main__':
+#     app.run(host=host, port=port)

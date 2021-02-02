@@ -73,6 +73,11 @@ Invalid Response :
 
 `Job with given id doesn't exists : dummy`
 
+### Running Functional Tests
+`cd tests`
+
+`pytest`
+
 ### Further Improvements (Scalibilty and optimaztions)
 1. The groups and config definition can be moved to a database backend for scalibilty/tracking purposes. This backend can also serve as an audit for the job execution status.
 2. Rule based validation of the group and job definitions 
