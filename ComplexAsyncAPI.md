@@ -15,7 +15,7 @@ downstream group.
 
 The following are the execution status of the group.
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 
 Positive Flow
@@ -43,6 +43,15 @@ It is assumed that the group status is not dependent on the underlying jobs , si
 
 DAG flow diagram
 
-![img_1.png](img_1.png)
+![img_1.png](images/img_1.png)
 
-Process flow diagram
+## **Process flow diagram**
+
+As can be seen from the below diagram , there are mainly two new components that are added to the existing solution
+1. Validation : This module basically validates the workflow for cycles and other undesirable flows 
+2. Request Router : This module routes the requests based on the conditions as provided in the workflow definition
+
+
+
+![img_3.png](images/img_3.png)
+
